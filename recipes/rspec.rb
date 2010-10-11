@@ -8,14 +8,15 @@ stategies << lambda do
   gsub_file spec_helper_path, 'config.fixture_path = "#{::Rails.root}/spec/fixtures"', ''
   gsub_file spec_helper_path, /(config.use_transactional_fixtures = true)/, '# \1'
   
-  mongoid_rspec_truncation = <<-MONGOID
+  if template_options[:orm] == "mongoid"
+    mongoid_rspec_truncation = <<-MONGOID
   
-    config.before :each do
-      Mongoid.master.collections.select {|c| c.name !~ /system/ }.each(&:drop)
-    end
+      config.before :each do
+        Mongoid.master.collections.select {|c| c.name !~ /system/ }.each(&:drop)
+      end
     
-  MONGOID
+    MONGOID
     
-  inject_into_file spec_helper_path, mongoid_rspec_truncation, :after => "# config.use_transactional_fixtures = true\n"
-
+    inject_into_file spec_helper_path, mongoid_rspec_truncation, :after => "# config.use_transactional_fixtures = true\n"
+  end
 end

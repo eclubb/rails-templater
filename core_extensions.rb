@@ -17,6 +17,8 @@ module Rails
       def load_options
         @template_options[:design] = ask("Which design framework? [none(default), compass]: ").downcase
         @template_options[:design] = "none" if @template_options[:design].nil?
+        
+        @template_options[:orm] = options["skip_active_record"] ? "mongoid" : "active_record"
       end
 
       def recipe(name)
