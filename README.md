@@ -17,7 +17,7 @@ To have a hermetic gem environment, it is advisable to create a gemset just for 
 * Clone rails-templater to your hard drive
 * Run the bootstrap.rb file with the RVM installed rubie and the name of your app as arguments
   
-  ruby /path/to/rails-templater/bootstrap.rb [rvm-rubie] [name of new app]
+    ruby /path/to/rails-templater/bootstrap.rb [rvm-rubie] [name of new app]
   
 This will:
 
@@ -28,11 +28,11 @@ This will:
 
 Note that the line to generate the new rails app assumes that you want Active Record/MySql. If you intend to use Mongo, then just change the last line in bootstrap.rb from
   
-  system("rails new #{app_name} -JT -d mysql -m #{template_file}")
+    system("rails new #{app_name} -JT -d mysql -m #{template_file}")
   
 to:
   
-  system("rails new #{app_name} -JOT -m #{template_file}")
+    system("rails new #{app_name} -JOT -m #{template_file}")
   
 ## Generated Application
 
