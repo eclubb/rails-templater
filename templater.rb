@@ -16,7 +16,7 @@ apply recipe('mongoid')
 
 
 inside app_name do
-  run 'bundle install'
+  run 'bundle install --binstubs'
 end
 
 execute_stategies
