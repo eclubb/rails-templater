@@ -26,4 +26,4 @@ puts 'Installing rails gem.'
 puts 'Successfully installed rails' if @env.system('gem', 'install', 'rails')
 
 template_file = File.join(File.expand_path(File.dirname(__FILE__)), 'templater.rb')
-system("rails new #{app_name} -JT -d mysql -m #{template_file}")
+system("rails new #{app_name} -JOT -m #{template_file}")
