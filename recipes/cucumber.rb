@@ -13,13 +13,13 @@ stategies <<  lambda do
 
   END
 
-  inject_into_file "features/support/env.rb",
+  inject_into_file 'features/support/env.rb',
     "\nCapybara.save_and_open_page_path = 'tmp/capybara/'",
     :after => 'Capybara.default_selector = :css'
 
-  inject_into_file "features/support/env.rb", cukes_factory_girl, :after => 'ActionController::Base.allow_rescue = false'
+  inject_into_file 'features/support/env.rb', cukes_factory_girl, :after => 'ActionController::Base.allow_rescue = false'
 
-  if template_options[:orm] == "mongoid"
+  if template_options[:orm] == 'mongoid'
     # Mongoid truncation strategy
     create_file 'features/support/hooks.rb', load_template('features/support/hooks.rb', 'mongoid')
 
