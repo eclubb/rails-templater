@@ -20,10 +20,7 @@ puts "Creating gemset #{app_name} in #{rvm_ruby}"
 puts "Now using gemset #{app_name}"
 @env.gemset_use!(app_name)
 
-puts 'Installing bundler gem.'
-puts 'Successfully installed bundler' if @env.system('gem', 'install', 'bundler')
-puts 'Installing rails gem.'
-puts 'Successfully installed rails' if @env.system('gem', 'install', 'rails')
+system('gem install --no-ri --no-rdoc bundler rails')
 
 template_file = File.join(File.expand_path(File.dirname(__FILE__)), 'templater.rb')
 system("rails new #{app_name} -JOT -m #{template_file}")
