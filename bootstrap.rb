@@ -20,7 +20,8 @@ puts "Creating gemset #{app_name} in #{rvm_ruby}"
 puts "Now using gemset #{app_name}"
 @env.gemset_use!(app_name)
 
-system('gem install --no-ri --no-rdoc bundler rails')
+puts 'Installing rails gem.'
+system('gem install --no-ri --no-rdoc rails')
 
 template_file = File.join(File.expand_path(File.dirname(__FILE__)), 'templater.rb')
 system("rails new #{app_name} -JOT -m #{template_file}")
