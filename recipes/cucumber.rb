@@ -2,8 +2,11 @@ gem 'capybara', '0.3.9', :group => :test
 gem 'cucumber-rails', :group => :test
 gem 'launchy', :group => :test
 
+generator_options = %w(--rspec --capybara)
+generator_options << '--skip-database' if template_options[:orm] == 'mongoid'
+
 stategies <<  lambda do
-  generate 'cucumber:install --rspec --capybara --skip-database'
+  generate "cucumber:install #{generator_options.join(' ')}"
 
   cukes_factory_girl = <<-END
 
