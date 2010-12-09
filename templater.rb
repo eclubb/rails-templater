@@ -14,10 +14,8 @@ apply(recipe('cucumber')) if yes?('Do you want to some cukes?')
 apply recipe('design')
 apply recipe('mongoid')
 
-
-inside app_name do
-  run 'bundle install --binstubs'
-end
+gemset = `rvm info | head -n2`.split[0].chop
+run "rvm #{gemset} ruby bundle install --binstubs"
 
 execute_stategies
 
