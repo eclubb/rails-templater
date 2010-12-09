@@ -5,7 +5,7 @@ gem 'launchy', :group => :test
 generator_options = %w(--rspec --capybara)
 generator_options << '--skip-database' if template_options[:orm] == 'mongoid'
 
-stategies <<  lambda do
+strategies <<  lambda do
   generate "cucumber:install #{generator_options.join(' ')}"
 
   cukes_factory_girl = <<-END

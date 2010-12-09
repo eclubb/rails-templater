@@ -17,7 +17,7 @@ apply recipe('mongoid')
 gemset = `rvm info | head -n2`.split[0].chop
 run "rvm #{gemset} ruby bundle install --binstubs"
 
-execute_stategies
+execute_strategies
 
 generators_configuration = <<-END
 config.generators do |g|
