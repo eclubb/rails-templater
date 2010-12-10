@@ -1,4 +1,4 @@
-gem 'rspec-rails', '>= 2.0.1', :group => [:development, :test]
+inject_into_file 'Gemfile', "\n  gem 'rspec-rails', '~> 2.0.1'", :after => '### Rails Generators ###'
 
 strategies << lambda do
   generate 'rspec:install'

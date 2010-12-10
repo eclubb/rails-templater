@@ -1,6 +1,11 @@
-gem 'capybara', '0.3.9', :group => :test
-gem 'cucumber-rails', :group => :test
-gem 'launchy', :group => :test
+gemfile = <<-END
+
+  ### Cucumber ###
+  gem 'cucumber-rails'
+  gem 'capybara', '0.3.9'
+  gem 'launchy'
+END
+inject_into_file 'Gemfile', gemfile, :before => 'end ### dev/test group ###'
 
 generator_options = %w(--rspec --capybara)
 generator_options << '--skip-database' if template_options[:orm] == 'mongoid'

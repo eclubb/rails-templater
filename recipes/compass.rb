@@ -1,4 +1,4 @@
-gem 'compass'
+inject_into_file 'Gemfile', "\ngem 'compass'", :after => '### Application Gems ###'
 
 # TODO: support more than one framework from compass
 compass_sass_dir = 'app/stylesheets'
