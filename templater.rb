@@ -26,7 +26,7 @@ config.generators do |g|
 end
 END
 
-environment generators_configuration
+application generators_configuration
 
 git :add => '.'
 git :commit => "-m 'Initial commit'"
