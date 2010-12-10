@@ -1,8 +1,30 @@
-.ackrc
-.rvmrc
-config/database.yml
-config/mongoid.yml
-public/cache/
-public/stylesheets/compiled/
-public/system/*
+# Rails
+.bundle
+db/*.sqlite3
+*.log
+tmp/**/*
 tmp/restart.txt
+
+# Public Uploads
+public/system/*
+
+# SASS-generated CSS
+public/stylesheets/compiled/
+
+# Public Cache
+public/cache/
+public/javascripts/cache
+public/stylesheets/cache
+
+# Vendor Cache
+vendor/cache
+
+# RVM
+.rvmrc
+
+# NetBeans
+nbproject
+
+# Vim
+*.swp
+*.swo
