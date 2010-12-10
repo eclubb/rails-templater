@@ -14,9 +14,8 @@ apply(recipe('cucumber')) if yes?('Do you want to some cukes?')
 apply recipe('design')
 apply recipe('mongoid')
 
-gemset = `rvm info | head -n2`.split[0].chop
-run "rvm #{gemset} ruby bundle install --binstubs"
 
+install_bundle
 execute_strategies
 
 generators_configuration = <<-END
