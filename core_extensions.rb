@@ -15,10 +15,10 @@ module Rails
       end
 
       def load_options
-        @template_options[:design] = ask('Which design framework? [none(default), compass]: ').downcase
-        @template_options[:design] = 'none' if @template_options[:design].nil?
-
         @template_options[:orm] = options['skip_active_record'] ? 'mongoid' : 'active_record'
+
+        @template_options[:compass]   = yes?('Compass ? ')
+        @template_options[:cucumber]  = yes?('Cucumber ? ')
       end
 
       def recipe(name)

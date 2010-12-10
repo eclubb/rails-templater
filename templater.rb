@@ -5,15 +5,16 @@ initialize_templater
 #Create Gemset
 create_file '.rvmrc', "rvm gemset use #{app_name}"
 
-required_recipes = %w(default jquery haml rspec factory_girl remarkable)
-required_recipes.each { |required_recipe| apply recipe(required_recipe) }
-
 load_options
 
-apply(recipe('cucumber')) if yes?('Do you want to some cukes?')
-apply recipe('design')
-apply recipe('mongoid')
+#required_recipes = %w(default jquery haml rspec factory_girl remarkable)
+required_recipes = %w(default jquery haml rspec factory_girl)
+recipes = required_recipes
 
+recipes << 'compass'  if @template_options[:compass]
+recipes << 'cucumber' if @template_options[:cucumber]
+
+recipes.each { |recipe_name| apply recipe(recipe_name) }
 
 install_bundle
 execute_strategies
