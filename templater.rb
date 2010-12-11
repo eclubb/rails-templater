@@ -7,8 +7,7 @@ create_file '.rvmrc', "rvm gemset use #{app_name}"
 
 load_options
 
-#required_recipes = %w(default jquery haml rspec factory_girl remarkable)
-required_recipes = %w(default jquery haml rspec factory_girl)
+required_recipes = %w(default jquery haml rspec factory_girl remarkable)
 recipes = required_recipes
 
 recipes << 'compass'    if @template_options[:compass]
