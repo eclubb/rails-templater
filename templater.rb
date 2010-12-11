@@ -11,8 +11,9 @@ load_options
 required_recipes = %w(default jquery haml rspec factory_girl)
 recipes = required_recipes
 
-recipes << 'compass'  if @template_options[:compass]
-recipes << 'cucumber' if @template_options[:cucumber]
+recipes << 'compass'    if @template_options[:compass]
+recipes << 'cucumber'   if @template_options[:cucumber]
+recipes << 'datamapper' if @template_options[:orm] == 'datamapper'
 
 recipes.each { |recipe_name| apply recipe(recipe_name) }
 
@@ -20,10 +21,10 @@ install_bundle
 execute_strategies
 
 generators_configuration = <<-END
-config.generators do |g|
-  g.test_framework :rspec, :fixture => true, :webrat_matchers => true
-  g.fixture_replacement :factory_girl, :dir => 'spec/factories'
-end
+  config.generators do |g|
+      g.test_framework :rspec, :fixture => true, :webrat_matchers => true
+      g.fixture_replacement :factory_girl, :dir => 'spec/factories'
+    end
 END
 
 application generators_configuration

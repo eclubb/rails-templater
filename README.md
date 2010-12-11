@@ -7,7 +7,7 @@ After cloning the rails-templater to your hard drive, you can generate a new app
 If you want to use Active Record with MySql:
     rails new application_name -JT -d mysql -m /path/to/rails-templater/templater.rb
 
-If you want to use Mongo DB with Mongoid:
+If you want to use DataMapper:
     rails new application_name -JOT -m /path/to/rails-templater/templater.rb
 
 ## For use with RVM (recommended)
@@ -26,13 +26,13 @@ This will:
 * install the bundler and rails gem into your new gemset
 * run the command to generate a new rails app with the name you picked
 
-Note that the line to generate the new rails app assumes that you want Active Record/MySql. If you intend to use Mongo, then just change the last line in bootstrap.rb from
+Note that the line to generate the new rails app assumes that you want DataMapper/Sqlite3. If you intend to use Active Record, then just change the last line in bootstrap.rb from
 
-    system("rails new #{app_name} -JT -d mysql -m #{template_file}")
+    system("rails new #{app_name} -JOT -m #{template_file}")
 
 to:
 
-    system("rails new #{app_name} -JOT -m #{template_file}")
+    system("rails new #{app_name} -JT -m #{template_file}")
 
 ## Generated Application
 
@@ -47,14 +47,14 @@ Rails Templater will generate the following:
 
 ## Database
 
-* Uses Active Record as the default ORM
-* Optionally uses [Mongoid](http://mongoid.org/) as the Object Document Model
+* Uses [DataMapper](http://datamapper.org/) as the default ORM
+* Optionally uses Active Record as the ORM
 
 ## Testing
 
 * [RSpec](http://github.com/rspec/rspec) for testing
 * [factory_girl](http://github.com/thoughtbot/factory_girl) for fixture replacement
-* [remarkable](http://github.com/remarkable/remarkable) for ActiveModel RSpec matchers
+* [remarkable](http://github.com/remarkable/remarkable) for Active Model RSpec matchers
 * Optionally uses [Cucumber](http://github.com/aslakhellesoy/cucumber-rails) for integration tests
 
 ## Note on Patches/Pull Requests

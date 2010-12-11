@@ -15,10 +15,10 @@ module Rails
       end
 
       def load_options
-        @template_options[:orm] = options['skip_active_record'] ? 'mongoid' : 'active_record'
+        @template_options[:orm] = options['skip_active_record'] ? 'datamapper' : 'active_record'
 
-        @template_options[:compass]   = yes?('Compass ? ')
-        @template_options[:cucumber]  = yes?('Cucumber ? ')
+        @template_options[:compass]  = yes?('Compass ? ')
+        @template_options[:cucumber] = yes?('Cucumber ? ')
       end
 
       def recipe(name)
