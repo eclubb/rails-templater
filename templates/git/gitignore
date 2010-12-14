@@ -1,7 +1,7 @@
 # Rails
 .bundle
-db/*.sqlite3
-*.log
+db/*.db
+log/*.log
 tmp/**/*
 tmp/restart.txt
 
