@@ -24,13 +24,9 @@ inject_into_file 'config/application.rb',
                  "\nrequire \"dm-rails/railtie\"",
                  :after => 'require "action_controller/railtie"'
 
-gsub_file 'config/environments/development.rb', /config.action_mailer.raise_delivery_errors = false/ do
-  "# config.action_mailer.raise_delivery_errors = false"
-end
+gsub_file 'config/environments/development.rb', /(config.action_mailer.raise_delivery_errors = false)/, '# \1'
+gsub_file 'config/environments/test.rb', /(config.action_mailer.delivery_method = :test)/, '# \1'
 
-gsub_file 'config/environments/test.rb', /config.action_mailer.delivery_method = :test/ do
-  "# config.action_mailer.delivery_method = :test"
-end
 create_file 'lib/tasks/datamapper_noops.rake', load_template('lib/tasks/datamapper_noops.rake', 'datamapper')
 
 inject_into_file  'app/controllers/application_controller.rb',
