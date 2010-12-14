@@ -24,6 +24,7 @@ generators_configuration = <<-END
   config.generators do |g|
       g.test_framework :rspec, :fixture => true, :webrat_matchers => true
       g.fixture_replacement :factory_girl, :dir => 'spec/factories'
+      g.stylesheets false
     end
 END
 
