@@ -10,9 +10,10 @@ load_options
 required_recipes = %w(default jquery haml rspec factory_girl remarkable)
 recipes = required_recipes
 
+recipes << 'datamapper' if @template_options[:orm] == 'datamapper'
 recipes << 'compass'    if @template_options[:compass]
 recipes << 'cucumber'   if @template_options[:cucumber]
-recipes << 'datamapper' if @template_options[:orm] == 'datamapper'
+recipes << 'devise'     if @template_options[:devise]
 
 recipes.each { |recipe_name| apply recipe(recipe_name) }
 

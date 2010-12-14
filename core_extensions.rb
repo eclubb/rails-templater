@@ -17,8 +17,9 @@ module Rails
       def load_options
         @template_options[:orm] = options['skip_active_record'] ? 'datamapper' : 'active_record'
 
-        @template_options[:compass]  = yes?('Compass ? ')
+        @template_options[:compass]  = yes?('Compass  ? ')
         @template_options[:cucumber] = yes?('Cucumber ? ')
+        @template_options[:devise]   = yes?('Devise   ? ')
       end
 
       def recipe(name)
