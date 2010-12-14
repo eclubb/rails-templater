@@ -1,8 +1,4 @@
-gemfile = <<-END
-gem 'haml'
-gem 'haml-rails'
-END
-inject_into_file 'Gemfile', gemfile, :after  => "### Application Gems ###\n"
+inject_into_file 'Gemfile', "\ngem 'haml-rails'", :after  => '### Application Gems ###'
 
 gemfile = <<-END
 
