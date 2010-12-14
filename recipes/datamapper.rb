@@ -31,6 +31,7 @@ end
 gsub_file 'config/environments/test.rb', /config.action_mailer.delivery_method = :test/ do
   "# config.action_mailer.delivery_method = :test"
 end
+create_file 'lib/tasks/datamapper_noops.rake', load_template('lib/tasks/datamapper_noops.rake', 'datamapper')
 
 inject_into_file  'app/controllers/application_controller.rb',
                   "require 'dm-rails/middleware/identity_map'\n\n",

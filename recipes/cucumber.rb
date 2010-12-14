@@ -18,14 +18,18 @@ strategies <<  lambda do
 
   END
 
-  inject_into_file 'features/support/env.rb',
+  env_file_path = 'features/support/env.rb'
+  inject_into_file env_file_path,
     "\nCapybara.save_and_open_page_path = 'tmp/capybara/'",
     :after => 'Capybara.default_selector = :css'
 
-  inject_into_file 'features/support/env.rb', cukes_factory_girl, :after => 'ActionController::Base.allow_rescue = false'
+  inject_into_file env_file_path, cukes_factory_girl, :after => 'ActionController::Base.allow_rescue = false'
 
   if template_options[:orm] == 'datamapper'
     # DataMapper truncation strategy
     create_file 'features/support/datamapper.rb', load_template('features/support/datamapper.rb', 'datamapper')
+
+    gsub_file env_file_path, /(require 'cucumber\/rails\/active_record')/, '# \1'
+    gsub_file env_file_path, /(Cucumber::Rails::World.use_transactional_fixtures = true)/, '# \1'
   end
 end
