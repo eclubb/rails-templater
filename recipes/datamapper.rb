@@ -7,12 +7,12 @@ gem 'dm-sqlite-adapter', DM_VERSION
 
 gem 'dm-migrations',     DM_VERSION
 gem 'dm-types',          DM_VERSION
-gem 'dm-validations',    DM_VERSION
-gem 'dm-constraints',    DM_VERSION
+# gem 'dm-validations',  DM_VERSION
+# gem 'dm-constraints',  DM_VERSION
 gem 'dm-transactions',   DM_VERSION
 gem 'dm-aggregates',     DM_VERSION
 gem 'dm-timestamps',     DM_VERSION
-gem 'dm-observer',       DM_VERSION
+# gem 'dm-observer',     DM_VERSION
 
 END
 inject_into_file 'Gemfile', gemfile, :before => '### Application Gems ###'
