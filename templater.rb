@@ -30,5 +30,10 @@ END
 
 application generators_configuration
 
+git :init
+
+remove_file '.gitignore'
+create_file '.gitignore', load_template('gitignore','git')
+
 git :add => '.'
 git :commit => "-m 'Initial commit'"
