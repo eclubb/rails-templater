@@ -2,16 +2,19 @@ module Rails
   module Generators
     module Actions
 
-      attr_accessor :strategies
       attr_reader :template_options
 
       def initialize_templater
-        @strategies = []
+        @after_blocks = []
         @template_options = {}
       end
 
-      def execute_strategies
-        strategies.each {|strategy| strategy.call }
+      def after_bundler(&block)
+        @after_blocks << block;
+      end
+
+      def execute_after_bundle
+        @after_blocks.each{|b| b.call}
       end
 
       def load_options

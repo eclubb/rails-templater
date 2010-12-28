@@ -1,6 +1,6 @@
 inject_into_file 'Gemfile', "\n  gem 'rspec-rails', '~> 2.0.1'", :after => '### Rails Generators ###'
 
-strategies << lambda do
+after_bundler do
   generate 'rspec:install'
 
   if template_options[:orm] == 'datamapper'

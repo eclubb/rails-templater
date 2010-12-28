@@ -7,6 +7,6 @@ gemfile = <<-END
 END
 inject_into_file 'Gemfile', gemfile, :after => 'group :development, :test do'
 
-strategies << lambda do
+after_bundler do
   inject_into_file 'spec/spec_helper.rb', "\nrequire 'factory_girl'", :after => "require 'rspec/rails'"
 end

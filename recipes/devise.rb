@@ -14,7 +14,7 @@ model_name = ask('What would you like the devise User model to be called? [user]
 model_name = 'user' if model_name.blank?
 template_options[:devise_model_name] = model_name
 
-strategies << lambda do
+after_bundler do
   generate 'devise:install'
 
   if template_options[:orm] == 'datamapper'

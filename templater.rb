@@ -18,7 +18,7 @@ inside app_name do
   run 'bundle install'
 end
 
-execute_strategies
+execute_after_bundle
 
 generators_configuration = <<-END
   config.generators do |g|

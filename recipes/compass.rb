@@ -10,7 +10,7 @@ compass_command = 'compass init rails . --using blueprint/semantic ' +
                   "--css-dir=#{compass_css_dir} " +
                   "--sass-dir=#{compass_sass_dir}"
 
-strategies << lambda do
+after_bundler do
   run compass_command
 
   inject_string = <<-END

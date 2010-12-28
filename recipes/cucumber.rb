@@ -7,7 +7,7 @@ gemfile = <<-END
 END
 inject_into_file 'Gemfile', gemfile, :before => 'end ### dev/test group ###'
 
-strategies <<  lambda do
+after_bundler do
   generate "cucumber:install --rspec --capybara"
 
   cukes_factory_girl = <<-END
