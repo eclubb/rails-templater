@@ -26,11 +26,6 @@ module Rails
         File.join File.dirname(__FILE__), 'recipes', "#{name}.rb"
       end
 
-      def install_bundle
-        gemset = `rvm info | head -n2`.split[0].chop
-        run "rvm #{gemset} ruby bundle install --binstubs"
-      end
-
       # TODO: Refactor loading of files
 
       def load_snippet(name, group)
